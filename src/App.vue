@@ -19,6 +19,14 @@
     <div>
       <button @click="addToContact" type="button">Add</button>
     </div>
+
+    <div>
+      <ul>
+        <li v-for="contact in contacts" :key="contact">
+          {{ contact.firstName }} - {{ contact.lastName }} - {{ contact.email }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -35,7 +43,7 @@ export default {
     };
   },
   mounted() {
-    this.getContactsFromLocalStorage();
+    if (localStorage.getItem("contacts")) this.getContactsFromLocalStorage();
   },
   methods: {
     addToContact() {
@@ -55,11 +63,5 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
