@@ -32,10 +32,10 @@ export default {
       firstName: null,
       lastName: null,
       contacts: [],
-      
     };
   },
   mounted() {
+    this.getContactsFromLocalStorage();
   },
   methods: {
     addToContact() {
@@ -44,8 +44,10 @@ export default {
         lastName: this.lastName,
         email: this.email,
       });
-
       localStorage.setItem("contacts", JSON.stringify(this.contacts));
+    },
+    getContactsFromLocalStorage() {
+      this.contacts = JSON.parse(localStorage.getItem("contacts"));
     },
   },
 };
