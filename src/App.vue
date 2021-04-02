@@ -17,7 +17,7 @@
       </span>
     </div>
     <div>
-      <button type="button">Add</button>
+      <button @click="addToContact" type="button">Add</button>
     </div>
   </div>
 </template>
@@ -28,10 +28,25 @@ export default {
   components: {},
   data: function() {
     return {
-      email: String,
-      firstName: String,
-      lastName: String,
+      email: null,
+      firstName: null,
+      lastName: null,
+      contacts: [],
+      
     };
+  },
+  mounted() {
+  },
+  methods: {
+    addToContact() {
+      this.contacts.push({
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+      });
+
+      localStorage.setItem("contacts", JSON.stringify(this.contacts));
+    },
   },
 };
 </script>
