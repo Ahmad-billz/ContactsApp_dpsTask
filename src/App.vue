@@ -1,16 +1,33 @@
 <template>
-<div>
+  <div>
+    <div>
+      <span>
+        first name
+        <input />
+      </span>
+
+      <span>
+        Last name
+        <input />
+      </span>
+
+      <span>
+        Email address
+        <input />
+      </span>
+    </div>
+    <div>
+
+   <button type="button">Add</button>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-    
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
