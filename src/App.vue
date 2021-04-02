@@ -3,22 +3,21 @@
     <div>
       <span>
         first name
-        <input />
+        <input v-model="firstName" placeholder="Enter first name" />
       </span>
 
       <span>
         Last name
-        <input />
+        <input v-model="lastName" placeholder="Enter last name" />
       </span>
 
       <span>
         Email address
-        <input />
+        <input type="email" v-model="email" placeholder="Enter emai address" />
       </span>
     </div>
     <div>
-
-   <button type="button">Add</button>
+      <button type="button">Add</button>
     </div>
   </div>
 </template>
@@ -27,6 +26,13 @@
 export default {
   name: "App",
   components: {},
+  data: function() {
+    return {
+      email: String,
+      firstName: String,
+      lastName: String,
+    };
+  },
 };
 </script>
 
