@@ -1,67 +1,7 @@
 <template>
-  <div>
-    <div>
-      <span>
-        first name
-        <input v-model="firstName" placeholder="Enter first name" />
-      </span>
-
-      <span>
-        Last name
-        <input v-model="lastName" placeholder="Enter last name" />
-      </span>
-
-      <span>
-        Email address
-        <input type="email" v-model="email" placeholder="Enter emai address" />
-      </span>
-    </div>
-    <div>
-      <button @click="addToContact" type="button">Add</button>
-    </div>
-
-    <div>
-      <ul>
-        <li v-for="contact in contacts" :key="contact">
-          {{ contact.firstName }} - {{ contact.lastName }} - {{ contact.email }}
-        </li>
-      </ul>
-    </div>
+  <div id="nav">
+    <router-link to="/">Contacts</router-link>
+    <router-link to="/add">Add</router-link>
   </div>
+  <router-view />
 </template>
-
-<script>
-export default {
-  name: "App",
-  components: {},
-  data: function() {
-    return {
-      email: null,
-      firstName: null,
-      lastName: null,
-      contacts: [],
-    };
-  },
-  mounted() {
-    if (localStorage.getItem("contacts")) this.getContactsFromLocalStorage();
-  },
-  methods: {
-    addToContact() {
-      this.contacts.push({
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-      });
-      localStorage.setItem("contacts", JSON.stringify(this.contacts));
-    },
-    getContactsFromLocalStorage() {
-      this.contacts = JSON.parse(localStorage.getItem("contacts"));
-    },
-  },
-};
-</script>
-
-<style>
-#app {
-}
-</style>
