@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="contact in contacts" :key="contact">
+  <div class=container>
+    <h1>Contacts</h1>
+    <br>
+    <br>
+    <ol>
+      <li v-for="contact in contacts" :key="contact" class=item>
         {{ contact.firstName }} - {{ contact.lastName }} - {{ contact.email }}
       </li>
-    </ul>
+    </ol>
   </div>
 </template>
 
@@ -27,4 +30,16 @@ export default {
 };
 </script>
 <style scoped>
+item {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.item h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
