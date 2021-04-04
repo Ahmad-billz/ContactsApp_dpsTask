@@ -5,6 +5,7 @@
     <button @click="()=>$router.push('/add')" type="button" class="btn clr" >New Contact</button>
     </header>
     <br>
+    <span v-if="!contacts.length"> Contact list is empty </span>
     <ul class="no-bullets">
       <li v-for="contact in contacts" :key="contact" class=item>
         {{ contact.firstName }}  {{ contact.lastName }} <br> Email: {{ contact.email }}<br>
