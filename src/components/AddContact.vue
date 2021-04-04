@@ -3,24 +3,24 @@
   <div class=container>
     <header>
     <h1>Add a new Contact</h1>
-    <button @click="()=>$router.push('/add')" type="button" class="btn clr" >Contacts</button>
+    <button @click="()=>$router.push('/')" type="button" class="btn clr" >Contacts</button>
     </header>
       
     
     <br>
-    <div>
-      <span class="form-control">
+    <div class="form-control">
+      <span >
         <label>First name</label>
         <input v-model="firstName" placeholder="Enter first name" />
       </span>
 
-      <span class="form-control">
+      <span >
         <label>Last name</label>
         <input v-model="lastName" placeholder="Enter last name" />
       </span>
       
 
-      <span class="form-control">
+      <span >
         <label>Email</label>
         <input type="email" v-model="email" placeholder="Enter emai address" class =add-contact />
       </span>
@@ -77,9 +77,6 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-}
-.add-contact {
-  margin-bottom: 40px;
 }
 .form-control {
   margin: 20px 20px;

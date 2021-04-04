@@ -2,7 +2,7 @@
   <div class="container" >
     <header>
     <h1>Contacts</h1>
-    <button @click="()=>$router.push('/')" type="button" class="btn clr" >New</button>
+    <button @click="()=>$router.push('/add')" type="button" class="btn clr" >New</button>
     </header>
     <br>
     <ol>
@@ -31,16 +31,13 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-.bgc{
-  background:#b3ffec ;
-}
 .item {
-  background: #ecebeb;
+  background: #f1efef;
   margin: 5px;
   padding: 10px 20px;
-  cursor: pointer;
-  
+  cursor: pointer; 
 }
 header {
   display: flex;
@@ -48,5 +45,4 @@ header {
   align-items: center;
   margin-bottom: 20px;
 }
-
 </style>
