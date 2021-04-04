@@ -1,11 +1,13 @@
 <template>
-  <div class=container>
+  <div class="container" >
+    <header>
     <h1>Contacts</h1>
-    <br>
+    <button @click="()=>$router.push('/')" type="button" class="btn clr" >New</button>
+    </header>
     <br>
     <ol>
       <li v-for="contact in contacts" :key="contact" class=item>
-        {{ contact.firstName }} - {{ contact.lastName }} - {{ contact.email }}
+        {{ contact.firstName }}  {{ contact.lastName }} <br> Email: {{ contact.email }}<br>
       </li>
     </ol>
   </div>
@@ -30,16 +32,21 @@ export default {
 };
 </script>
 <style scoped>
-item {
-  background: #f4f4f4;
+.bgc{
+  background:#b3ffec ;
+}
+.item {
+  background: #ecebeb;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.item h3 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 </style>

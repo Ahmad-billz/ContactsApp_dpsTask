@@ -1,25 +1,27 @@
 <template>
+  <form class=form-add>
   <div class=container>
+    <header>
     <h1>Add a new Contact</h1>
-    <br>
+    <button @click="()=>$router.push('/add')" type="button" class="btn clr" >Contacts</button>
+    </header>
+      
+    
     <br>
     <div>
-      <span>
-        First name
+      <span class="form-control">
+        <label>First name</label>
         <input v-model="firstName" placeholder="Enter first name" />
       </span>
-      <br>
-      <br>
 
-      <span>
-        Last name
+      <span class="form-control">
+        <label>Last name</label>
         <input v-model="lastName" placeholder="Enter last name" />
       </span>
-      <br>
-      <br>
+      
 
-      <span>
-        Email address
+      <span class="form-control">
+        <label>Email</label>
         <input type="email" v-model="email" placeholder="Enter emai address" class =add-contact />
       </span>
       <br>
@@ -28,7 +30,9 @@
     <div>
       <button @click="addToContact" type="button" class=btn>Add</button>
     </div>
+
   </div>
+  </form>
 </template>
 
 <script>
@@ -47,6 +51,11 @@ export default {
     if (localStorage.getItem("contacts")) this.getContactsFromLocalStorage();
   },
   methods: {
+
+    gotoc() {
+      <router-link to="/"></router-link>
+    },
+
     addToContact() {
       this.contacts.push({
         firstName: this.firstName,
@@ -63,11 +72,17 @@ export default {
 </script>
 
 <style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
 .add-contact {
   margin-bottom: 40px;
 }
 .form-control {
-  margin: 20px 0;
+  margin: 20px 20px;
 }
 .form-control label {
   display: block;
@@ -79,16 +94,9 @@ export default {
   padding: 3px 7px;
   font-size: 17px;
 }
-.form-control-check {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.form-control-check label {
-  flex: 1;
-}
-.form-control-check input {
+.form-add{
   flex: 2;
   height: 20px;
 }
+
 </style>

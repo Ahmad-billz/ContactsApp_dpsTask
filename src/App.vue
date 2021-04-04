@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/">Contacts</router-link>
+    <router-link to="/" >Contacts</router-link>
     <router-link to="/add">New</router-link>
   </div>
   <router-view />
@@ -37,14 +37,15 @@ body {
   font-size: 15px;
   font-family: inherit;
 }
+.clr{
+  background-color: black;
+  color:yellow;
+}
 .btn:focus {
   outline: none;
 }
 .btn:active {
   transform: scale(0.98);
 }
-.btn-block {
-  display: block;
-  width: 100%;
-}
+
 </style>
