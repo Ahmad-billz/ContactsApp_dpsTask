@@ -24,6 +24,9 @@
         <label>Email</label>
         <input type="email" v-model="email" placeholder="Enter emai address" class =add-contact />
       </span>
+      <span v-if="showError" style="color: red">
+          Fields cannot be empty
+        </span>
       <br>
       <br>
     </div>
@@ -45,6 +48,7 @@ export default {
       firstName: null,
       lastName: null,
       contacts: [],
+      showError: false,
     };
   },
   mounted() {
@@ -57,15 +61,28 @@ export default {
     },
 
     addToContact() {
+      this.showError = false;
+      if (
+        this.isEmpty(this.email) ||
+        this.isEmpty(this.lastName) ||
+        this.isEmpty(this.firstName)
+      ) {
+        this.showError = true;
+        return;
+      }
       this.contacts.push({
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
       });
       localStorage.setItem("contacts", JSON.stringify(this.contacts));
+      this.firstName = this.lastName = this.email = "";
     },
     getContactsFromLocalStorage() {
       this.contacts = JSON.parse(localStorage.getItem("contacts"));
+    },
+    isEmpty(value) {
+      return value === null || value === "" ? true : false;
     },
   },
 };
