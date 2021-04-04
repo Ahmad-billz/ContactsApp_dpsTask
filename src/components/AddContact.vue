@@ -3,7 +3,7 @@
   <div class=container>
     <header>
     <h1>Add a new Contact</h1>
-    <button @click="()=>$router.push('/')" type="button" class="btn clr" >Contacts</button>
+    <button @click="()=>$router.push('/')" type="button" class="btn clr" >Show Contacts</button>
     </header>
       
     
